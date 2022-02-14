@@ -5,11 +5,11 @@ then returns number of calories burned
 # user input
 age = int(input('Age:\n> '))
 weight = int(input('Weight:\n> '))
-heartRate = int(input('Heart rate:\n> '))
+heart_rate = int(input('Heart rate:\n> '))
 minutes = int(input('Minutes of exercise:\n> '))
 
 # calculate calories burned
-calories = ((age * 0.2757) + (weight * 0.03295) + (heartRate * 1.0781) - 75.4991) * minutes / 8.368
+calories = ((age * 0.2757) + (weight * 0.03295) + (heart_rate * 1.0781) - 75.4991) * minutes / 8.368
 
 # output results with 2 decimal places
 print(f'Calories: {calories:.2f} calories')
