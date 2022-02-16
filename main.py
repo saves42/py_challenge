@@ -3,6 +3,21 @@ Useful built-in functions
 '''
 # returns the number of elements in a sequence
 len()
+
+
+'''
+Useful built-in methods
+'''
+# add elements to a list
+my_list = []
+my_list.append('apple')
+
+# remove and return item at index i (default last)
+my_list.pop()
+
+# remove first element whos value is x Ex: .remove('apple')
+my_list.remove()
+
 '''
 program that takes age, weight, heart rate, and minutes of exercise as input,
 then returns number of calories burned
