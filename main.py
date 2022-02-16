@@ -1,7 +1,7 @@
 '''
 Useful built-in functions
 '''
-# returns the length of a sequence type
+# returns the number of elements in a sequence
 len()
 '''
 program that takes age, weight, heart rate, and minutes of exercise as input,
