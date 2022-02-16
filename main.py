@@ -12,7 +12,7 @@ Useful built-in methods
 my_list = []
 my_list.append('apple')
 
-# remove and return item at index i (default last)
+# remove item at index i (default last)
 my_list.pop()
 
 # remove first element whos value is x Ex: .remove('apple')
