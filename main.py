@@ -1,22 +1,40 @@
 '''
 Useful built-in functions
 '''
-# returns the number of elements in a sequence
-len()
+my_list = []
+i = 0
+val = 'apple'
 
+# returns the number of elements in a sequence
+len(val)
+
+# find the element in list with the smallest value
+min(my_list)
+
+# find the element in list with the largest value
+max(my_list)
+
+# find the sum of all elements of a list (numbers only)
+sum(my_list)
 
 '''
 Useful built-in methods
 '''
 # add elements to a list
-my_list = []
-my_list.append('apple')
+
+my_list.append(val)
 
 # remove item at index i (default last)
-my_list.pop()
+my_list.pop(i)
 
 # remove first element whos value is x Ex: .remove('apple')
-my_list.remove()
+my_list.remove(val)
+
+# find the index of the first element in list whose value matches val
+my_list.index(val)
+
+# count the number of occurrences of the value val in list
+my_list.count(val)
 
 '''
 program that takes age, weight, heart rate, and minutes of exercise as input,
