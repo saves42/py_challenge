@@ -1,7 +1,12 @@
-"""
+'''
+Useful built-in functions
+'''
+# returns the length of a sequence type
+len()
+'''
 program that takes age, weight, heart rate, and minutes of exercise as input,
 then returns number of calories burned
-"""
+'''
 # user input
 age = int(input('Age:\n> '))
 weight = int(input('Weight:\n> '))
@@ -14,10 +19,10 @@ calories = ((age * 0.2757) + (weight * 0.03295) + (heart_rate * 1.0781) - 75.499
 # output results with 2 decimal places
 print(f'Calories: {calories:.2f} calories')
 
-"""
+'''
 program that takes number of quarters, dimes, nickels, and pennies as input,
 and outputs total amount of money
-"""
+'''
 # user input
 quarters = int(input('Quarters:\n> ')) * 0.25
 dimes = int(input('Dimes:\n> ')) * 0.10
