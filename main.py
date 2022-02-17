@@ -68,6 +68,20 @@ num_set_1.difference(num_set_2)
 num_set_1.symmetric_difference(num_set_2)
 
 '''
+Dictionaries (uses key/value pairs, access with key NOT index)
+'''
+# create a dictionary (empty)
+pets = {}
+
+# add entry to dictionary (key will mutated if already in dictionary)
+pets['Tom'] = 'cat'
+pets['Jerry'] = 'mouse'
+pets['Spike'] = 'dog'
+
+# remove entry from dictionary
+del pets['Spike'] 
+
+'''
 program that takes age, weight, heart rate, and minutes of exercise as input,
 then returns number of calories burned
 '''
