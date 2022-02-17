@@ -37,7 +37,7 @@ my_list.index(val)
 my_list.count(val)
 
 '''
-Methods for sets
+Methods for sets (data type: set)
 '''
 # create set (empty set must used set())
 num_set_1 = set()
@@ -68,7 +68,7 @@ num_set_1.difference(num_set_2)
 num_set_1.symmetric_difference(num_set_2)
 
 '''
-Dictionaries (uses key/value pairs, access with key NOT index)
+Dictionaries (uses key/value pairs, access with key NOT index) (data type: mapping)
 '''
 # create a dictionary (empty)
 pets = {}
