@@ -37,6 +37,37 @@ my_list.index(val)
 my_list.count(val)
 
 '''
+Methods for sets
+'''
+# create set (empty set must used set())
+num_set_1 = set()
+num_set_2 = {1, 2, 3, 4}
+
+#  places a new element into the set if the set does not contain an element with the provided value
+num_set_1.add('1')
+
+# remove a provided value from a set
+num_set_2.remove('3')
+
+# remove a random element from a set
+num_set_2.pop()
+
+# remove all elements from a set
+num_set_1.clear()
+
+# returns a new set containing only the elements in common between set and all provided sets
+num_set_1.intersection(num_set_2)
+
+# returns a new set containing all of the unique elements in all sets
+num_set_1.union(num_set_2)
+
+# returns a set containing only the elements of set that are not found in any of the provided sets
+num_set_1.difference(num_set_2)
+
+# returns a set containing only elements that appear in exactly one of set_a or set_b
+num_set_1.symmetric_difference(num_set_2)
+
+'''
 program that takes age, weight, heart rate, and minutes of exercise as input,
 then returns number of calories burned
 '''
