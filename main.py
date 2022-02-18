@@ -112,3 +112,19 @@ total = quarters + dimes + nickels + pennies
 
 # output results with 2 decimal places
 print(f'Amount: ${total:.2f}')
+
+'''
+program that calculates the half-life of caffeine
+'''
+# get input and convert to float
+caffeine_mg = float(input())
+
+# calculate half-life after 6, 12, and 24 hours
+half_life_6 = caffeine_mg * (1/2)
+half_life_12 = half_life_6 * (1/2)
+half_life_24 = (half_life_12 * (1/2)) * (1/2)
+
+# output results with special formatting (.2f is for two decimal places)
+print(f'After 6 hours: {half_life_6:.2f} mg')
+print(f'After 12 hours: {half_life_12:.2f} mg')
+print(f'After 24 hours: {half_life_24:.2f} mg')
