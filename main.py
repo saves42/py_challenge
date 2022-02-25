@@ -128,3 +128,25 @@ half_life_24 = (half_life_12 * (1/2)) * (1/2)
 print(f'After 6 hours: {half_life_6:.2f} mg')
 print(f'After 12 hours: {half_life_12:.2f} mg')
 print(f'After 24 hours: {half_life_24:.2f} mg')
+
+''' Given two integers that represent par and the number of strokes used,
+    write a program that prints the appropriate score name. Print "Error" if par is not 3, 4, or 5 '''
+# get input
+par = int(input())
+strokes = int(input())
+
+# tuple of valid pars
+valid_scores = (3, 4, 5)
+
+# validate par and print appropriate output
+if par in valid_scores:
+    if (strokes - par == -2):
+        print('Eagle')
+    elif (strokes - par == -1):
+        print('Birdie')
+    elif (strokes - par == 0):
+        print('Par')
+    elif (strokes - par == 1):
+        print('Bogey')
+else:
+    print('Error')
