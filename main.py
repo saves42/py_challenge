@@ -150,3 +150,89 @@ if par in valid_scores:
         print('Bogey')
 else:
     print('Error')
+
+'''
+Write a program that takes a date as input and outputs the date's 
+season in the northern hemisphere. The input is a string to represent 
+the month and an int to represent the day. In addition, check if the 
+string and int are valid (an actual month and day). 
+'''
+input_month = input()
+input_day = int(input())
+
+months = ('January', 'February', 'March', 'April', 'May',
+          'June', 'July', 'August', 'September', 'October',
+          'November', 'December')
+          
+months30 = ('April', 'June', 'September', 'November')
+
+          
+valid = ''
+
+spring = ('March', 'April', 'May', 'June')
+summer = ('June', 'July', 'August', 'September')
+autumn = ('September', 'October', 'November', 'December')
+winter = ('December', 'January', 'February', 'March')
+
+message = ''
+
+if (input_month in months) and ((input_day < 32) and (input_day > 0)):
+    if ((input_month in months30) and (input_day > 30)) or ((input_month == 'February') and (input_day > 29)):
+        valid = False
+    else:
+        valid = True
+else:
+    valid = False
+    
+    
+if valid:
+    if input_month in spring:
+        message = 'Spring'
+        if (input_month != 'March') and (input_month != 'June'):
+            print(message)
+        elif input_month == 'March':
+            if (input_day >= 20) and (input_day <= 31):
+                print(message)
+        elif input_month == 'June':
+            if (input_day >= 1) and (input_day <= 20):
+                print(message)
+        
+            
+    if input_month in summer:
+        message = 'Summer'
+        if (input_month != 'June') and (input_month != 'September'):
+            print(message)
+        elif input_month == 'June':
+            if (input_day >= 21) and (input_day <= 30):
+                print(message)
+        elif input_month == 'September':
+            if (input_day >= 1) and (input_day <= 21):
+                print(message)
+        
+            
+    if input_month in autumn:
+        message = 'Autumn'
+        if (input_month != 'September') and (input_month != 'December'):
+            print(message)
+        elif input_month == 'September':
+            if (input_day >= 22) and (input_day <= 30):
+                print(message)
+        elif input_month == 'December':
+            if (input_day >= 1) and (input_day <= 20):
+                print(message)
+        
+            
+    if input_month in winter:
+        message = 'Winter'
+        if (input_month != 'December') and (input_month != 'March'):
+            print(message)
+        elif input_month == 'December':
+            if (input_day >= 21) and (input_day <= 31):
+                print(message)
+        elif input_month == 'March':
+            if (input_day >= 1) and (input_day <= 19):
+                print(message)
+        
+        
+if not valid:
+    print('Invalid')
