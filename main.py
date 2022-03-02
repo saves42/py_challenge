@@ -1,3 +1,5 @@
+import random
+
 '''
 Useful built-in functions
 '''
@@ -16,6 +18,9 @@ max(my_list)
 
 # find the sum of all elements of a list (numbers only)
 sum(my_list)
+
+# return a random number arguments are minimum value and maximum value (must import random)
+random_num = random.randint(0, 9)
 
 '''
 Useful built-in methods
