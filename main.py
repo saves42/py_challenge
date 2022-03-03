@@ -338,9 +338,9 @@ num_cols = int(input())
 letter = ''
 
 for i in range(num_rows):
-    letter = 'A'
+    letter = 'A' # update variable outside inner loop so it starts at 'A' each time
     for j in range(num_cols):
         print(f'{i + 1}{letter}', end=' ')
-        letter = chr(ord(letter) + 1)
+        letter = chr(ord(letter) + 1) # converts to number than back to character adding 1 inbetween to get next character over
 
 print()
