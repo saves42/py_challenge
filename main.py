@@ -322,3 +322,25 @@ contact_emails[new_contact] = new_email
 
 for contact in contact_emails:
     print(f'{contact_emails[contact]} is {contact}')
+
+
+'''
+Given num_rows and num_cols, print a list of all seats in a theater. 
+Rows are numbered, columns lettered, as in 1A or 3E. Print a space after each seat.
+Sample output with inputs: 2 3
+
+1A 1B 1C 2A 2B 2C 
+
+'''
+num_rows = int(input())
+num_cols = int(input())
+
+letter = ''
+
+for i in range(num_rows):
+    letter = 'A'
+    for j in range(num_cols):
+        print(f'{i + 1}{letter}', end=' ')
+        letter = chr(ord(letter) + 1)
+
+print()
