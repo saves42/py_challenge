@@ -7,6 +7,12 @@ my_list = []
 i = 0
 val = 'apple'
 
+# converts an integer into a character
+chr(10)
+
+# converts a character into an integer
+ord('a')
+
 # returns the number of elements in a sequence
 len(val)
 
