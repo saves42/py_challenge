@@ -300,3 +300,16 @@ else:
     print(f'{highway_number} is not a valid interstate highway number.')
     
 
+# loop over a dictionary
+contact_emails = {
+    'Sue Reyn' : 's.reyn@email.com',
+    'Mike Filt': 'mike.filt@bmail.com',
+    'Nate Arty': 'narty042@nmail.com'
+}
+
+new_contact = input()
+new_email = input()
+contact_emails[new_contact] = new_email
+
+for contact in contact_emails:
+    print(f'{contact_emails[contact]} is {contact}')
