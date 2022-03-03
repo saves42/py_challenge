@@ -25,7 +25,7 @@ reversed(my_list)
 # return a random number arguments are minimum value and maximum value (must import random)
 random_num = random.randint(0, 9)
 
-# return a range of numbers where x is the starting value up to y (not included). z is the increment amount range(x, y, z)
+# return a range of numbers where x is the starting value up to y (not included). z is the increment amount range(x, y, z) range(x) will return 0 - x
 range(0, 10, 1)
 
 '''
