@@ -422,3 +422,32 @@ for i in range(len(user_nums)):
 
 # output min and max      
 print(f'{min_num} and {max_num}')
+
+
+'''
+Many user-created passwords are simple and easy to guess. Write a program 
+that takes a simple password and makes it stronger by replacing characters 
+using the key below, and by appending "!" to the end of the input string.
+note: strings are immutable, must concat using +=
+'''
+
+word = input()
+password = ''
+
+# dictionary of characters that should be converted
+new_characters = {'i': '1', 
+                  'a': '@', 
+                  'm': 'M', 
+                  'B': '8', 
+                  's': '$'}
+
+
+for i in range(len(word)): # loops through string input
+    if word[i] in new_characters: # checks to see if current character is in dictionary
+        password += new_characters[word[i]] # access dictionary value with key of current character from word
+    else:
+        password += word[i]
+else:                         # this line runs when the entire loop has completed
+    password += '!'
+
+print(password)
