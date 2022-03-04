@@ -392,3 +392,33 @@ while valid:
     phrase = input()
     if phrase in exit_strings: # check if the new input is an exit statement
         valid = False
+
+
+'''
+Write a program that reads a list of integers into a list as long as the integers 
+are greater than zero, then outputs the smallest and largest integers in the list.
+'''
+
+num = int(input())
+
+max_num = num
+min_num = num
+user_nums = []
+
+# fill list with input until negative number
+while num > 0:
+    user_nums.append(num)
+    num = int(input())
+
+# find largest number
+for i in range(len(user_nums)):
+    if user_nums[i] > max_num:
+        max_num = user_nums[i]
+
+# find smallest number
+for i in range(len(user_nums)):
+    if user_nums[i] < min_num:
+        min_num = user_nums[i]
+
+# output min and max      
+print(f'{min_num} and {max_num}')
