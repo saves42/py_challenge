@@ -34,6 +34,10 @@ random_num = random.randint(0, 9)
 # return a range of numbers where x is the starting value up to y (not included). z is the increment amount range(x, y, z) range(x) will return 0 - x
 range(0, 10, 1)
 
+# enumerate() returns the index and value in a list 
+for (index, value) in enumerate(my_list):
+    print(index, value)
+
 '''
 Useful built-in methods
 '''
