@@ -370,3 +370,25 @@ for i in range(10):
         break
 
 print('User score:', user_score)
+
+
+'''
+Write a program that takes in a line of text as input, and outputs that line 
+of text in reverse. The program repeats, ending when the user enters "Done", "done", or "d" 
+for the line of text.
+'''
+
+phrase = input()
+
+exit_strings = ('Done', 'done', 'd')
+
+valid = True
+
+while valid:
+    for i in reversed(phrase): # iterate over the reversed input
+        print(i, end='')
+        
+    print() # put a new line between phrases
+    phrase = input()
+    if phrase in exit_strings: # check if the new input is an exit statement
+        valid = False
