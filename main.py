@@ -479,3 +479,23 @@ val4 = int(input())
 # tuple unpacking (assigns multiple values at once by position)
 (val1, val2, val3, val4) = swap_values(val1, val2, val3, val4)
 print(f'{val1} {val2} {val3} {val4}')
+
+'''
+Write a program that takes in a positive integer as input, and outputs a string of 1's and 0's 
+representing the integer in binary. The program must define and call the following two functions. 
+Define a function named int_to_reverse_binary() that takes an integer as a parameter and returns a 
+string of 1's and 0's representing the integer in binary (in reverse). Define a function named string_reverse() 
+that takes an input string as a parameter and returns a string representing the input string in reverse.
+'''
+def int_to_reverse_binary(integer_value):
+    reverse_binary = []
+    while integer_value > 0:
+        reverse_binary.append(str(integer_value % 2))
+        integer_value = integer_value // 2
+    return ''.join(reverse_binary)
+    
+def string_reverse(input_string):
+    return input_string[::-1] # easy way to reverse string ('slice' [begin:end:step] if begin and end omitted, 0 - end implied)
+
+user_val = int(input())
+print(string_reverse(int_to_reverse_binary(user_val)))
