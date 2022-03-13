@@ -499,3 +499,57 @@ def string_reverse(input_string):
 
 user_val = int(input())
 print(string_reverse(int_to_reverse_binary(user_val)))
+
+
+'''
+Define a function called exact_change that takes the total change amount in cents and calculates 
+the change using the fewest coins. The coin types are pennies, nickels, dimes, and quarters. Then write 
+a main program that reads the total change amount as an integer input, calls exact_change(), and outputs 
+the change, one coin type per line. Use singular and plural coin names as appropriate, 
+like 1 penny vs. 2 pennies. Output "no change" if the input is 0 or less.
+'''
+
+def exact_change(coins):
+  
+  quarters = coins // 25 # divides and removes remainder
+  coins = coins % 25 # uses modulo to get remaing coin amount
+  
+  dimes = coins // 10
+  coins = coins % 10
+  
+  nickels = coins // 5
+  coins = coins % 5
+
+  pennies = coins
+
+  return (pennies, nickels, dimes, quarters)
+
+input_val = int(input())    
+num_pennies, num_nickels, num_dimes, num_quarters = exact_change(input_val)
+    
+if input_val > 0:
+    if num_pennies > 0:
+        if num_pennies > 1:
+            print(f'{num_pennies} pennies')
+        else:
+            print(f'{num_pennies} penny')
+            
+    if num_nickels > 0:
+        if num_nickels > 1:
+            print(f'{num_nickels} nickels')
+        else:
+            print(f'{num_nickels} nickel')
+            
+    if num_dimes > 0:
+        if num_dimes > 1:
+            print(f'{num_dimes} dimes')
+        else:
+            print(f'{num_dimes} dime')
+            
+    if num_quarters > 0:
+        if num_quarters > 1:
+            print(f'{num_quarters} quarters')
+        else:
+            print(f'{num_quarters} quarter')
+else:
+    print('no change')
