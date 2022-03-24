@@ -7,6 +7,38 @@ my_list = []
 i = 0
 val = 'apple'
 
+'''
+Methods to check a string value that returns a True or False Boolean value:
+
+    isalnum() -- Returns True if all characters in the string are lowercase or uppercase letters, or the numbers 0-9.
+    isdigit() -- Returns True if all characters are the numbers 0-9.
+    islower() -- Returns True if all cased characters are lowercase letters.
+    isupper() -- Return True if all cased characters are uppercase letters.
+    isspace() -- Return True if all characters are whitespace.
+    startswith(x) -- Return True if the string starts with x.
+    endswith(x) -- Return True if the string ends with x.
+
+'''
+'''
+Methods to create new strings:
+
+    capitalize() -- Returns a copy of the string with the first character capitalized and the rest lowercased.
+    lower() -- Returns a copy of the string with all characters lowercased.
+    upper() -- Returns a copy of the string with all characters uppercased.
+    strip() -- Returns a copy of the string with leading and trailing whitespace removed.
+    title() -- Returns a copy of the string as a title, with first letters of words capitalized.
+
+'''
+
+# Returns a copy of the string with all occurrences of the substring old replaced by the string new
+val = val.replace('apple', 'orange')
+
+# Returns the index of the first occurrence of item x in the string, else returns -1. find(x, start, end), rfind() for reverse search
+char_index = val.find('n')
+
+# Returns the number of times x occurs in the string
+char_count = val.count('o')
+
 # converts an integer into a character
 chr(10)
 
