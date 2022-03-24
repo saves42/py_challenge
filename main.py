@@ -3,9 +3,7 @@ import random
 '''
 Useful built-in functions
 '''
-my_list = []
-i = 0
-val = 'apple'
+
 
 '''
 Methods to check a string value that returns a True or False Boolean value:
@@ -29,6 +27,17 @@ Methods to create new strings:
     title() -- Returns a copy of the string as a title, with first letters of words capitalized.
 
 '''
+
+my_list = []
+i = 0
+val = 'apple'
+phrase = 'The quick brown fox jumps over the lazy dog'
+
+#  splits a string into a list of tokens. Each token is a substring that forms a part of a larger string. Default is whitespace
+words = phrase.split()
+
+# join a list of strings together to create a single string. ex: 'seperator'.join(list)
+second_phrase = ' '.join(words)
 
 # Returns a copy of the string with all occurrences of the substring old replaced by the string new
 val = val.replace('apple', 'orange')
