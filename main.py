@@ -594,3 +594,36 @@ if input_val > 0:
             print(f'{num_quarters} quarter')
 else:
     print('no change')
+
+
+'''
+Many documents use a specific format for a person's name. Write a program whose input is:
+firstName middleName lastName
+and whose output is:
+lastName, firstInitial.middleInitial
+If the input has the form:
+firstName lastName
+the output is:
+lastName, firstInitial. 
+'''
+
+full_name = input()
+
+count = full_name.count(' ')
+name_arr = full_name.split()
+
+name_arr.insert(0, name_arr[len(name_arr) -1])
+name_arr.pop()
+name_arr[0] += ', '
+
+if (count == 2):
+  name_arr[1] = name_arr[1][0]
+  name_arr[1] += '.'
+  name_arr[2] = name_arr[2][0]
+  name_arr[2] += '.'
+elif (count == 1):
+  name_arr[1] = name_arr[1][0]
+  name_arr[1] += '.'
+  
+edited_name = ''.join(name_arr)
+print(edited_name)
