@@ -609,15 +609,15 @@ lastName, firstInitial.
 
 full_name = input()
 
-count = full_name.count(' ')
+count = full_name.count(' ') # counts whitespace to tell if three names(2 spaces) or two(1 space)
 name_arr = full_name.split()
 
-name_arr.insert(0, name_arr[len(name_arr) -1])
-name_arr.pop()
-name_arr[0] += ', '
+name_arr.insert(0, name_arr[len(name_arr) -1]) # puts the last name in front
+name_arr.pop() # removes duplicate lastname from end
+name_arr[0] += ', ' # add comma and space for formatting
 
-if (count == 2):
-  name_arr[1] = name_arr[1][0]
+if (count == 2): # swaps out the name for just the first letter then adds a '.'
+  name_arr[1] = name_arr[1][0] 
   name_arr[1] += '.'
   name_arr[2] = name_arr[2][0]
   name_arr[2] += '.'
@@ -627,3 +627,25 @@ elif (count == 1):
   
 edited_name = ''.join(name_arr)
 print(edited_name)
+
+'''
+Write a program whose input is a phrase and whose output 
+is an acronym of the input. Append a period (.) after each 
+letter in the acronym. If a word begins with a lower case 
+letter, don't include that letter in the acronym. Assume the 
+input has at least one upper case letter.
+'''
+phrase = input()
+
+phrase_arr = phrase.split()
+acronym_arr = [] # empty list to append to
+
+for i in range(len(phrase_arr)):
+    if (phrase_arr[i][0].isupper()): # check if the first letter is a capital
+        acronym_arr.append(phrase_arr[i][0]) # appends if true
+else:
+    acronym_arr[-1] += '.' # adds a '.' to the last element (-1) after the final iteration
+        
+acronym = '.'.join(acronym_arr)
+
+print(acronym)
