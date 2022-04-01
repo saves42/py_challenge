@@ -649,3 +649,26 @@ else:
 acronym = '.'.join(acronym_arr)
 
 print(acronym)
+
+
+'''
+Write a program that takes in two strings and 
+outputs the longest string. If they are the same 
+length then output the second string.
+'''
+
+def find_longer(first_string, second_string):
+    longer_string = None
+    if len(first_string) > len(second_string):
+        longer_string = first_string
+    else:
+        longer_string = second_string
+        
+    return longer_string
+
+
+string1 = input()
+string2 = input()
+
+
+print(find_longer(string1,string2))
