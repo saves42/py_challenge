@@ -672,3 +672,26 @@ string2 = input()
 
 
 print(find_longer(string1,string2))
+
+
+'''
+Given a line of text as input, output the number of characters 
+excluding spaces, periods, exclamation points, or commas.
+'''
+
+user_text = input().lower()
+
+text_arr = user_text.split()
+excluded_characters = [' ', '.','!',',']
+count = 0
+
+
+
+for i in range(len(text_arr)):
+    for j in range(len(text_arr[i])):
+        if text_arr[i][j] in excluded_characters:
+            continue
+        else:
+            count += 1
+
+print(count)
