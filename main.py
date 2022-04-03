@@ -695,3 +695,26 @@ for i in range(len(text_arr)):
             count += 1
 
 print(count)
+
+'''
+Write a function max_magnitude() with three integer parameters 
+that returns the largest magnitude value. Use the function in the 
+main program that takes three integer inputs and outputs the largest 
+magnitude value.
+'''
+
+def max_magnitude(user_val1, user_val2, user_val3):
+    users = [user_val1, user_val2, user_val3]
+    max_num = user_val1
+    for num in users:
+        if math.fabs(num) > math.fabs(user_val1):
+            max_num = num
+    
+    return max_num
+    
+if __name__ == '__main__':
+    
+    num1 = int(input())
+    num2 = int(input())
+    num3 = int(input())
+    print(max_magnitude(num1, num2, num3))
