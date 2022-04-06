@@ -33,6 +33,9 @@ i = 0
 val = 'apple'
 phrase = 'The quick brown fox jumps over the lazy dog'
 
+# accepts a single iterable object argument, such as a string, list, or tuple, and returns a new list object. Ex: list('abc') creates a new list with the elements ['a', 'b', 'c'].
+new_list = list('abcd')
+
 #  splits a string into a list of tokens. Each token is a substring that forms a part of a larger string. Default is whitespace
 words = phrase.split()
 
@@ -83,7 +86,6 @@ for (index, value) in enumerate(my_list):
 Useful built-in methods
 '''
 # add elements to a list
-
 my_list.append(val)
 
 # remove item at index i (default last)
