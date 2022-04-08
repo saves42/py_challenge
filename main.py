@@ -751,3 +751,28 @@ if __name__ == '__main__':
     num2 = int(input())
     num3 = int(input())
     print(max_magnitude(num1, num2, num3))
+
+
+'''
+Print the two-dimensional list mult_table by row and column. 
+On each line, each character is separated by a space. Hint: Use nested loops.
+
+'''
+user_input= input()
+lines = user_input.split(',')
+
+# This line uses a construct called a list comprehension
+# to convert the input string into a two-dimensional list.
+# Ex: 1 2, 2 4 is converted to [ [1, 2], [2, 4] ]
+
+# convert to int <- for every number in the nested list <- for every element in lines (lines is a list of lists)
+mult_table = [[int(num) for num in line.split()] for line in lines]
+
+for row in mult_table:
+    for cell in row:
+        if (row.index(cell) != len(row) - 1): # if the element is not the last one, use the seperator ' | '
+            print(cell, end=' | ')
+        else:
+            print(cell, end='')
+    
+    print() # create a new line between rows
