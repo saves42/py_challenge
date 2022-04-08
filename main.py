@@ -35,8 +35,12 @@ phrase = 'The quick brown fox jumps over the lazy dog'
 start = 0
 end = len(my_list)
 
+
 # Get a new list containing some of another list's elements.
 my_list[start:end]
+
+# create a copy of a list using slice notation with no start or end indices
+your_list = my_list[:]
 
 # accepts a single iterable object argument, such as a string, list, or tuple, and returns a new list object. Ex: list('abc') creates a new list with the elements ['a', 'b', 'c'].
 new_list = list('abcd')
@@ -74,6 +78,12 @@ max(my_list)
 # find the sum of all elements of a list (numbers only)
 sum(my_list)
 
+# True if every element in list is True (!= 0), or if the list is empty.
+all(my_list)
+
+# True if any element in the list is True.
+any(my_list)
+
 # reverse a list
 reversed(my_list)
 
@@ -104,6 +114,22 @@ my_list.index(val)
 
 # count the number of occurrences of the value val in list
 my_list.count(val)
+
+# sort a list
+my_list.sort()
+
+# Add all items in [x] to list.
+my_list.extend([1, 2, 3])
+
+# Insert x into list before position i my_list.insert(i, x)
+my_list.insert(1, 7)
+
+# reverse a list in-place
+my_list.reverse()
+
+# create a list from running map(), map() takes a function and iterable as arguments and performs the function on every element in the iterable
+user_input = input()
+test_grades = list(map(int, user_input.split())) # list- creates list with result of map. map- uses int() to conver every item in user_input.split() to integer.
 
 '''
 Methods for sets (data type: set)
