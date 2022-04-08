@@ -32,6 +32,11 @@ my_list = []
 i = 0
 val = 'apple'
 phrase = 'The quick brown fox jumps over the lazy dog'
+start = 0
+end = len(my_list)
+
+# Get a new list containing some of another list's elements.
+my_list[start:end]
 
 # accepts a single iterable object argument, such as a string, list, or tuple, and returns a new list object. Ex: list('abc') creates a new list with the elements ['a', 'b', 'c'].
 new_list = list('abcd')
