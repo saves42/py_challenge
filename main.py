@@ -132,6 +132,17 @@ user_input = input()
 test_grades = list(map(int, user_input.split())) # list- creates list with result of map. map- uses int() to conver every item in user_input.split() to integer.
 
 '''
+list comprehension
+'''
+# iterates over a list, modifies each element, and returns a new list consisting of the modified elements. 
+# new_list = [expression for loop_variable_name in iterable]
+our_list = [(i + 5) for i in my_list]
+
+# A list comprehension can be extended with an optional conditional clause that causes the statement to return a list with only certain elements.
+# new_list = [expression for name in iterable if condition]
+our_list = [(i + 5) for i in my_list if (i % 2) == 0]
+
+'''
 Methods for sets (data type: set)
 '''
 # create set (empty set must used set())
