@@ -787,3 +787,16 @@ for row in mult_table:
             print(cell, end='')
     
     print() # create a new line between rows
+
+'''
+Complete the solution so that it reverses the string passed into it. 
+'''
+def solution(string):
+    reversed = []
+    i = len(string) - 1
+    
+    while i >= 0:
+        reversed.append(string[i])
+        i -= 1
+        
+    return ''.join(reversed)
