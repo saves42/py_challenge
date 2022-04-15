@@ -800,3 +800,4 @@ def solution(string):
         i -= 1
         
     return ''.join(reversed)
+    # alternate solution -> return string[::-1] (slice method) -1 is the step (-1 being backwards from the last element)
