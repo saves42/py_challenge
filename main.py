@@ -801,3 +801,15 @@ def solution(string):
         
     return ''.join(reversed)
     # alternate solution -> return string[::-1] (slice method) -1 is the step (-1 being backwards from the last element)
+
+
+'''
+Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+'''
+def digitize(n):
+    num_list = []
+    for num in str(n):
+        num_list.append(int(num))
+    return num_list[::-1]
+
+# one line solution -> return [int(x) for x in str(n)[::-1]]
