@@ -184,6 +184,37 @@ pets['Tom'] = 'cat'
 pets['Jerry'] = 'mouse'
 pets['Spike'] = 'dog'
 
+# dictionary methods
+pets.items() # returns a view object that yields (key, value) tuples.
+pets.keys() # returns a view object that yields dictionary keys.
+pets.values() # returns a view object that yields dictionary values.
+
+'''
+--Use list() to convert view objects into lists to manipulate--
+
+solar_distances = dict(mars=219.7e6, venus=116.4e6, jupiter=546e6, pluto=2.95e9)
+list_of_distances = list(solar_distances.values())  # Convert view to list
+
+sorted_distance_list = sorted(list_of_distances)
+closest = sorted_distance_list[0]
+next_closest = sorted_distance_list[1]
+
+print(f'Closest planet is {closest:.4e}')
+print(f'Second closest planet is {next_closest:.4e}')
+
+'''
+# iterate over dictionaries
+
+for name, animal in pets: # using key/value pair
+    print(f'{name} is a {animal}')
+
+for name in pets.keys(): # using keys
+    print(name)
+
+for animal in pets.value(): # using value
+    print(animal)
+
+
 # remove entry from dictionary
 del pets['Spike'] 
 
@@ -813,3 +844,4 @@ def digitize(n):
     return num_list[::-1]
 
 # one line solution -> return [int(x) for x in str(n)[::-1]]
+
