@@ -845,3 +845,39 @@ def digitize(n):
 
 # one line solution -> return [int(x) for x in str(n)[::-1]]
 
+
+'''
+Complete the function so that it finds the average of the three scores passed to it 
+and returns the letter value associated with that grade.
+'''
+
+def get_grade(s1, s2, s3):
+    grade = None
+    average = (s1 + s2 + s3) / 3
+    grades = list('ABCDF')
+    
+    a = average >= 90 and average <= 100
+    b = average >= 80 and average < 90
+    c = average >= 70 and average < 80
+    d = average >= 60 and average < 70
+    f = average < 60
+    
+    if (a):
+        grade = grades[0]
+        
+    elif (b):
+        grade = grades[1]
+        
+    elif (c):
+        grade = grades[2]
+        
+    elif (d):
+        grade = grades[3]
+        
+    elif (f):
+        grade = grades[4]
+    
+    return grade
+    
+
+    
