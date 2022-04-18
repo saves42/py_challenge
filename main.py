@@ -880,4 +880,19 @@ def get_grade(s1, s2, s3):
     return grade
     
 
-    
+
+'''
+Write a program that takes any number of integers as input, and outputs the average and max. 
+'''
+
+str_list = list(input().split())
+num_list = []
+
+for string in str_list:
+    num_list.append(int(string))
+
+average = sum(num_list) // len(num_list)
+
+max_num = max(num_list)
+
+print(average, max_num)
