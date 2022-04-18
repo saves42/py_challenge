@@ -882,7 +882,8 @@ def get_grade(s1, s2, s3):
 
 
 '''
-Write a program that takes any number of integers as input, and outputs the average and max. 
+Write a program that takes any number of integers as 
+input, and outputs the average and max. 
 '''
 
 str_list = list(input().split())
@@ -896,3 +897,22 @@ average = sum(num_list) // len(num_list)
 max_num = max(num_list)
 
 print(average, max_num)
+
+'''
+Write a program that gets a list of integers from input, and outputs 
+non-negative integers in ascending order (lowest to highest). 
+'''
+
+num_list = list(input().split())
+
+positive_nums = []
+
+for num in num_list:
+    if int(num) < 0:
+        continue
+    else:
+        positive_nums.append(int(num))
+     
+        
+for num in sorted(positive_nums):
+    print(num, end=' ')
