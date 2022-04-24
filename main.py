@@ -1024,3 +1024,21 @@ for letter in word:
         total += tile_dict[letter]
         
 print(total)
+
+
+'''
+Given a sorted list of integers, output the middle integer. Assume 
+the number of integers is always odd.The maximum number of inputs for 
+any test case should not exceed 9. If exceeded, output "Too many inputs".
+'''
+
+num_list = list(input().split())
+
+valid_entry = len(num_list) < 10
+
+num = len(num_list) // 2
+
+if valid_entry:
+    print(num_list[num])
+else:
+    print('Too many inputs')
