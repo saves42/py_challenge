@@ -1042,3 +1042,21 @@ if valid_entry:
     print(num_list[num])
 else:
     print('Too many inputs')
+
+
+'''
+Create a function with two arguments that will return 
+a list of the first (n) multiples of (x).
+Assume both the given number and the number of times 
+to count will be positive numbers greater than 0. 
+'''
+
+def count_by(x, n):
+    num_list = []
+    count = x
+    
+    for i in range(n):
+        num_list.append(count)
+        count += x
+    
+    return num_list
