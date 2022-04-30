@@ -1060,3 +1060,16 @@ def count_by(x, n):
         count += x
     
     return num_list
+
+
+'''
+Given a string, you have to return a string 
+in which each character (case-sensitive) is repeated once.
+'''
+
+def double_char(s):
+    new_string = []
+    for char in s:
+        new_string.append(char)
+        new_string.append(char)
+    return ''.join(new_string)
