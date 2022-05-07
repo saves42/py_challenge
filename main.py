@@ -1171,3 +1171,23 @@ the test input may be "1 year old" or "5 years old". The first character in the 
 def get_age(age):
     return int(age[0])
 
+
+
+'''
+The first century spans from the year 1 up to and including the year 
+100, the second century - from the year 101 up to and including the year 200, etc.
+Given a year, return the century it is in.
+'''
+
+def century(year):
+    
+    result = 0
+    
+    while year > 0:
+        
+        year -= 100
+    
+        result += 1
+
+            
+    return result
