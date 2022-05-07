@@ -189,6 +189,36 @@ pets.items() # returns a view object that yields (key, value) tuples.
 pets.keys() # returns a view object that yields dictionary keys.
 pets.values() # returns a view object that yields dictionary values.
 
+
+'''
+Try/except example
+'''
+
+def get_age():
+    age = int(input())
+    if (age > 17) and (age < 76):
+        return age
+        
+    else:
+        raise ValueError('Invalid age.')
+
+# TODO: Complete fat_burning_heart_rate() function
+def fat_burning_heart_rate(age):
+    heart_rate = (220 - age) * (70/100)
+    return heart_rate
+
+if __name__ == "__main__":
+    # TODO: Modify to call get_age() and fat_burning_heart_rate()
+    #       and handle the exception
+    try:
+        age = get_age()
+        print(f'Fat burning heart rate for a {age} year-old: {fat_burning_heart_rate(age)} bpm')
+    except ValueError as err:
+        print(err)
+        print('Could not calculate heart rate info.')
+
+
+
 '''
 --Use list() to convert view objects into lists to manipulate--
 
@@ -1140,3 +1170,4 @@ the test input may be "1 year old" or "5 years old". The first character in the 
 
 def get_age(age):
     return int(age[0])
+
