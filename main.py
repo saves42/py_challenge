@@ -1191,3 +1191,16 @@ def century(year):
 
             
     return result
+
+
+
+'''
+given a string of space separated numbers, return the highest and lowest number.
+Output string must be two numbers separated by a single space, and highest number is first.
+'''
+
+def high_and_low(numbers):
+    
+    num_list = sorted(list(map(int, numbers.split())), reverse=True)
+    
+    return f'{num_list[0]} {num_list[-1]}'
