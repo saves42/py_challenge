@@ -1230,3 +1230,18 @@ def high_and_low(numbers):
     num_list = sorted(list(map(int, numbers.split())), reverse=True)
     
     return f'{num_list[0]} {num_list[-1]}'
+
+
+
+'''
+Given a non-negative integer, 3 for example, return a string 
+with a murmur: "1 sheep...2 sheep...3 sheep..."
+'''
+
+def count_sheep(n):
+    count = 1
+    sheep = ""
+    for i in range(n):
+        sheep += f"{count} sheep..."
+        count += 1
+    return sheep
