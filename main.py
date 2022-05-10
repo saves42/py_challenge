@@ -190,6 +190,61 @@ pets.keys() # returns a view object that yields dictionary keys.
 pets.values() # returns a view object that yields dictionary values.
 
 
+
+'''
+working with files
+'''
+
+
+# file path example
+
+import os
+import datetime
+
+curr_day = datetime.date(1997, 8, 29)
+
+num_days = 30
+for i in range(num_days):
+    year = str(curr_day.year)
+    month = str(curr_day.month)
+    day = str(curr_day.day)
+
+    # Build path string using current OS path separator
+    file_path = os.path.join('logs', year, month, day, 'log.txt')
+
+    f = open(file_path, 'r')
+    
+    print(f'{file_path}: {f.read()}')
+    f.close()
+
+    curr_day = curr_day + datetime.timedelta(days=1)
+
+
+
+'''
+Write a program that first reads in the name of an input file, followed 
+by two strings representing the lower and upper bounds of a search range. 
+The file should be read using the file.readlines() method. The input file 
+contains a list of alphabetical, ten-letter strings, each on a separate 
+line. Your program should output all strings from the list that are within 
+that range (inclusive of the bounds).
+'''
+path = input()
+
+with open(path, 'r') as text:
+    words = text.readlines()
+    
+lower_bound = input()
+upper_bound = input()
+
+    
+for word in words:
+    if (word.strip() >= lower_bound) and (word.strip() <= upper_bound):
+        print(word.strip())
+
+
+        
+
 '''
 Try/except example
 '''
@@ -216,31 +271,6 @@ if __name__ == "__main__":
     except ValueError as err:
         print(err)
         print('Could not calculate heart rate info.')
-
-'''
-file path example
-'''
-
-import os
-import datetime
-
-curr_day = datetime.date(1997, 8, 29)
-
-num_days = 30
-for i in range(num_days):
-    year = str(curr_day.year)
-    month = str(curr_day.month)
-    day = str(curr_day.day)
-
-    # Build path string using current OS path separator
-    file_path = os.path.join('logs', year, month, day, 'log.txt')
-
-    f = open(file_path, 'r')
-    
-    print(f'{file_path}: {f.read()}')
-    f.close()
-
-    curr_day = curr_day + datetime.timedelta(days=1)
 
 
 
