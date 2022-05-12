@@ -243,7 +243,32 @@ for word in words:
         print(word.strip())
 
 
-        
+
+'''
+Write a program that first reads in the name of an input file and then reads the 
+file using the csv.reader() method. The file contains a list of words separated by commas. 
+Your program should output the words and their frequencies 
+(the number of times each word appears in the file) without any duplicates.
+'''
+
+import csv
+
+path = input()
+skip = []
+
+with open(path, 'r') as csvfile:
+    words = csv.reader(csvfile)
+    
+    for row in words:
+        for word in row:
+            if word in skip:
+                continue
+            else:
+                skip.append(word)
+                print(f'{word} {row.count(word)}')
+
+
+
 
 '''
 Try/except example
