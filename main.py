@@ -269,6 +269,63 @@ with open(path, 'r') as csvfile:
 
 
 
+'''
+Write a program that first reads in the name of an input file and then reads the input file 
+using the file.readlines() method. The input file contains an unsorted list of number of seasons 
+followed by the corresponding TV show. Your program should put the contents of the input file 
+into a dictionary where the number of seasons are the keys, and a list of TV shows are the values 
+(since multiple shows could have the same number of seasons). Sort the dictionary by key 
+(least to greatest) and output the results to a file named output_keys.txt. Separate multiple 
+TV shows associated with the same key with a semicolon (;), ordering by appearance in the 
+input file. Next, sort the dictionary by values (alphabetical order), and output the results 
+to a file named output_titles.txt.
+'''
+
+
+file = input()
+movies = {}
+reference_key = ''
+i = 0
+movie_list = []
+
+with open(file, 'r') as moviefile:
+    for entry in moviefile.readlines():
+        if i % 2 == 0:
+            
+            if int(entry.strip()) in movies:
+                reference_key = int(entry.strip())
+            else:
+                movies[int(entry.strip())] = []
+                reference_key = int(entry.strip())
+            
+        else:
+            movies[reference_key].append(entry.strip())
+        
+        i += 1 
+
+with open('output_keys.txt', 'w') as output_keys:
+    
+    for key in sorted(movies.keys()):
+            output_keys.write(f'{key}: ')
+            for movie in movies[key]:
+                if movies[key].index(movie) == len(movies[key]) - 1:
+                    output_keys.write(f'{movie}\n')
+                else:
+                    output_keys.write(f'{movie}; ')
+
+for key in movies:
+        for movie in movies[key]:
+            movie_list.append(movie)
+
+with open('output_titles.txt', 'w') as output_titles:
+    for movie in sorted(movie_list):
+        output_titles.write(f'{movie}\n')
+        
+        
+
+
+
+
 
 '''
 Try/except example
