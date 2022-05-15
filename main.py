@@ -28,16 +28,47 @@ Methods to create new strings:
 
 '''
 
+'''
+string formatting
+'''
+# 12 = minimum number of characters / > = alignment character for word (<left,>right,^center) / '-' = fill character when word does not meet min requirement
+word = 'world'
+print(f'{"hello":->12}{word:->12}') # prints -------hello-------world
+
+'''
+following code will print:
+
+item           price    
+------------------------
+coffee          1.5     
+donut           0.5     
+energy drink    2.5     
+sandwich        4.25 
+
+'''
+stock = { 
+          'coffee': 1.50,
+          'donut': .50,
+          'energy drink': 2.50,
+          'sandwich': 4.25
+}
+
+print(f'{"item":<12}{"price":^12}')
+print('-' * 24)
+
+for item, price in stock.items():
+  print(f'{item:<12}{price:^12}')
+
 my_list = []
 i = 0
 val = 'apple'
 phrase = 'The quick brown fox jumps over the lazy dog'
 start = 0
 end = len(my_list)
-
+stride = 2 # increments by 2
 
 # Get a new list containing some of another list's elements.
-my_list[start:end]
+my_list[start:end:stride]
 
 # create a copy of a list using slice notation with no start or end indices
 your_list = my_list[:]
