@@ -415,6 +415,51 @@ def friend(x):
     return [y for y in x if len(y)==4]
 
 
+
+
+'''
+classes
+'''
+
+# class example
+class Inventory:
+  def __init__(self):
+    self.stock = { 
+          'coffee': 1.50,
+          'donut': .50,
+          'energy drink': 2.50,
+          'sandwich': 4.25
+}
+  def add_menu_item(self, item, price):
+    self.stock[item] = price
+  
+  def print_menu(self):
+    print(f'{"item":<12}{"price":^12}')
+    
+    print('-' * 24)
+    
+    for item, price in self.stock.items():
+      print(f'{item:<12}{price:^12}')
+
+    print()
+
+
+snacks = Inventory()
+
+snacks.print_menu()
+
+snacks.add_menu_item('ice cream', 1.25)
+
+snacks.print_menu()
+
+
+'''
+exceptions
+'''
+
+
+
+
 '''
 --Use list() to convert view objects into lists to manipulate--
 
