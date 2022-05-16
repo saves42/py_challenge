@@ -432,6 +432,20 @@ class Inventory:
 }
   def add_menu_item(self, item, price):
     self.stock[item] = price
+
+  
+  def get_price(self, item):
+    return f'The price of {item} is {self.stock[item]}'
+
+  
+  def get_total(self, items):
+    total = 0
+
+    for item in items:
+      total += self.stock[item]
+
+    return total
+
   
   def print_menu(self):
     print(f'{"item":<12}{"price":^12}')
@@ -451,6 +465,10 @@ snacks.print_menu()
 snacks.add_menu_item('ice cream', 1.25)
 
 snacks.print_menu()
+
+print(snacks.get_price('coffee'))
+
+print(snacks.get_total(['coffee', 'donut', 'sandwich']))
 
 
 '''
