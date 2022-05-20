@@ -1488,3 +1488,24 @@ to check if an integer number is divisible by both integers a and b.
 
 def is_divide_by(number, a, b):
     return (number % a == 0) and (number % b == 0)
+
+
+
+'''
+Given an array of integers, remove the smallest value. Do not mutate 
+the original array/list. If there are multiple elements with the same 
+value, remove the one with a lower index. If you get an empty array/list, 
+return an empty array/list. Don't change the order of the elements that are left.
+'''
+
+def remove_smallest(numbers):
+    result = None
+    
+    if numbers:
+        processed_numbers = numbers[:]
+        processed_numbers.pop(processed_numbers.index(min(processed_numbers)))
+        result = processed_numbers
+    else:
+        result = numbers
+    
+    return result
