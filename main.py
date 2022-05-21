@@ -59,6 +59,8 @@ print('-' * 24)
 for item, price in stock.items():
   print(f'{item:<12}{price:^12}')
 
+#########################################################################################################
+
 my_list = []
 i = 0
 val = 'apple'
@@ -174,6 +176,21 @@ our_list = [(i + 5) for i in my_list]
 our_list = [(i + 5) for i in my_list if (i % 2) == 0]
 
 '''
+list comprehension example
+'''
+
+'''
+Make a program that filters a list of strings and returns a list with only your 
+friends name in it. If a name has exactly 4 letters in it, you can be sure 
+that it has to be a friend of yours! Otherwise, you can be sure he's not...
+'''
+
+def friend(x):
+    return [y for y in x if len(y)==4]
+
+##########################################################################################################
+
+'''
 Methods for sets (data type: set)
 '''
 # create set (empty set must used set())
@@ -204,6 +221,8 @@ num_set_1.difference(num_set_2)
 # returns a set containing only elements that appear in exactly one of set_a or set_b
 num_set_1.symmetric_difference(num_set_2)
 
+#######################################################################################################
+
 '''
 Dictionaries (uses key/value pairs, access with key NOT index) (data type: mapping)
 '''
@@ -220,7 +239,7 @@ pets.items() # returns a view object that yields (key, value) tuples.
 pets.keys() # returns a view object that yields dictionary keys.
 pets.values() # returns a view object that yields dictionary values.
 
-
+#########################################################################################################
 
 '''
 working with files
@@ -369,7 +388,7 @@ with open(file, 'r') as photo_file:
         print(f'{entry.strip().split("_").pop(0)}{extension}')
 
 
-
+#########################################################################################################
 
 '''
 Try/except example
@@ -399,23 +418,7 @@ if __name__ == "__main__":
         print('Could not calculate heart rate info.')
 
 
-
-
-'''
-list comprehension example
-'''
-
-'''
-Make a program that filters a list of strings and returns a list with only your 
-friends name in it. If a name has exactly 4 letters in it, you can be sure 
-that it has to be a friend of yours! Otherwise, you can be sure he's not...
-'''
-
-def friend(x):
-    return [y for y in x if len(y)==4]
-
-
-
+#########################################################################################################
 
 '''
 classes
@@ -470,13 +473,7 @@ print(snacks.get_price('coffee'))
 
 print(snacks.get_total(['coffee', 'donut', 'sandwich']))
 
-
-'''
-exceptions
-'''
-
-
-
+#########################################################################################################
 
 '''
 --Use list() to convert view objects into lists to manipulate--
@@ -1545,3 +1542,19 @@ def greet(language):
         message = welcome_message[language]
         
     return message
+
+
+
+'''
+Write a program that reads a character, then reads in a list of 
+words. The output of the program is every word in the list that 
+contains the character at least once. Assume at least one word in 
+the list will contain the given character.
+'''
+
+character = input()
+word_list = input().split()
+
+for word in word_list:
+    if character in word:
+        print(word)
