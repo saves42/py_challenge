@@ -1558,3 +1558,83 @@ word_list = input().split()
 for word in word_list:
     if character in word:
         print(word)
+
+'''
+This program will store roster and rating information for a soccer team. 
+Coaches rate players during tryouts to ensure a balanced team.
+'''
+
+def print_menu():
+    print('MENU')
+    print('a - Add player')
+    print('d - Remove player')
+    print('u - Update player rating')
+    print('r - Output players above a rating')
+    print('o - Output roster')
+    print('q - Quit')
+    print()
+    
+    
+    
+def print_roster():
+    print('ROSTER')
+    for key in sorted(roster.keys()):
+        print(f'Jersey number: {key}, Rating: {roster[key]}')
+    print()
+
+def add_player():
+    player = int(input(f"Enter a new player's jersey number:\n"))
+    rating = input(f"Enter the player's rating:\n")
+    roster[player] = rating
+
+def delete_player():
+    player = int(input(f"Enter a jersey number:\n"))
+    roster.pop(player)
+
+def update_player():
+    player = int(input(f"Enter a jersey number:\n"))
+    rating = input(f"Enter a new rating player:\n")
+    roster[player] = rating
+
+def above_rating():
+    rating = input(f"Enter a rating :\n")
+    print(f'ABOVE {rating}')
+    for key in sorted(roster.keys()):
+        if roster[key] > rating:
+            print(f'Jersey number: {key}, Rating: {roster[key]}')
+    print()
+count = 1
+roster = {}
+
+while count < 6:
+    player = int(input(f"Enter player {count}'s jersey number:\n"))
+    rating = input(f"Enter player {count}'s rating:\n\n")
+    roster[player] = rating
+    count += 1
+    
+print_roster()
+
+print_menu()
+
+
+option = input('Choose an option:\n')
+
+while option != 'q':
+    if option == 'a':
+        add_player()
+    
+    elif option == 'd':
+        delete_player()
+    
+    elif option == 'u':
+        update_player()
+    
+    elif option == 'r':
+        above_rating()
+    
+    elif option == 'o':
+        print_roster()
+    
+    print_menu()
+    
+    option = input('Choose an option:\n')
