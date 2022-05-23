@@ -423,6 +423,182 @@ if __name__ == "__main__":
 '''
 classes
 '''
+# __init__(self) method constructor used to initialize a class to a specific state
+# Constructor parameters can have default values like any other function, using the name=value syntax.
+# Arguments without default values are required, must come first, and must be in order.
+# EX: __init__(self, age, name, salary=15.00)
+# A class may also contain methods used internally that a user of the class need not access. 
+# For example, consider if the RaceTime class contains a separate method _diff_time() used by print_time() 
+# and print_pace() to find the total number of minutes to complete the race.
+# Good practice is to prepend an underscore to methods only used internally by a class.
+'''
+Class customization is the process of defining how a class should behave for some common operations. 
+Such operations might include printing, accessing attributes, or how instances of that class are 
+compared to each other. To customize a class, a programmer implements instance methods with special 
+method names that the Python interpreter recognizes
+
+Normal printing
+
+class Toy:
+    def __init__(self, name, price, min_age):
+        self.name = name
+        self.price = price
+        self.min_age = min_age
+
+
+truck = Toy('Monster Truck XX', 14.99, 5)
+print(truck)
+
+<__main__.Toy instance at 0xb74cb98c>
+
+Customized printing
+
+class Toy:
+    def __init__(self, name, price, min_age):
+        self.name = name
+        self.price = price
+        self.min_age = min_age
+
+    def __str__(self):
+        return (f'{self.name} costs only ${self.price:.2f}.'
+                f' Not for children under {self.min_age}!')
+
+truck = Toy('Monster Truck XX', 14.99, 5)
+print(truck)
+
+'''
+
+'''
+Overloading
+
+Class customization can redefine the functionality of built-in operators like 
+<, >=, +, -, and * when used with class instances, a technique known as operator overloading. 
+
+The below code shows overloading of the less-than (<) operator of the Time class by defining 
+a method with the __lt__ special method name.
+
+class Time:
+    def __init__(self, hours, minutes):
+        self.hours = hours
+        self.minutes = minutes
+
+    def __str__(self):
+        return f'{self.hours}:{self.minutes}'
+
+    def __lt__(self, other):
+        if self.hours < other.hours:
+            return True
+        elif self.hours == other.hours:
+            if self.minutes < other.minutes:
+                return True
+        return False
+
+Rich comparison method 	Overloaded operator
+---------------------------------------------
+__lt__(self, other) 	less-than (<)
+__le__(self, other) 	less-than or equal-to (<=)
+__gt__(self, other) 	greater-than (>)
+__ge__(self, other) 	greater-than or equal-to (>=)
+__eq__(self, other) 	equal to (==)
+__ne__(self, other) 	not-equal to (!=)
+
+In the above program, the Time class contains a definition for the __lt__ method, 
+which overloads the < operator. When the comparison t < min_time is evaluated, the __lt__ method 
+is automatically called. The self parameter of __lt__ is bound to the left operand, t, and the other 
+parameter is bound to the right operand, min_time. Returning True indicates that t is indeed less-than 
+min_time, and returning False indicates that t equal-to or greater-than min_time. Methods like __lt__ 
+above are known as rich comparison methods. The following table describes rich comparison methods 
+and the corresponding relational operator that is overloaded. 
+
+Numeric operators such as +, -, *, and / can be overloaded using class customization techniques. 
+Thus, a user-defined class can be treated as a numeric type of object wherein instances 
+of that class can be added together, 
+multiplied, etc.
+
+class Time24:
+    def __init__(self, hours, minutes):
+        self.hours = hours
+        self.minutes = minutes
+
+    def __str__(self):
+        return f'{self.hours:02d}:{self.minutes:02d}'
+
+    def __gt__(self, other): 
+        if self.hours > other.hours: 
+            return True 
+        else: 
+            if self.hours == other.hours: 
+                if self.minutes > other.minutes: 
+                    return True 
+        return False
+
+    def __sub__(self, other):
+        """ Calculate absolute distance between two times """
+        if self > other:
+            larger = self
+            smaller = other
+        else:
+            larger = other
+            smaller = self
+
+        hrs = larger.hours - smaller.hours
+        mins = larger.minutes - smaller.minutes
+        if mins < 0:
+            mins += 60
+            hrs -=1
+
+        # Check if times wrap to new day
+        if hrs > 12:
+            hrs = 24 - (hrs + 1)
+            mins = 60 - mins
+
+        # Return new Time24 instance 
+        return Time24(hrs, mins)
+
+t1 = input('Enter time1 (hours:minutes): ')
+tokens = t1.split(':')
+time1 = Time24(int(tokens[0]), int(tokens[1]))
+
+t2 = input('Enter time2 (hours:minutes): ')
+tokens = t2.split(':')
+time2 = Time24(int(tokens[0]), int(tokens[1]))
+
+print('Time difference:', time1 - time2)
+
+Output:
+Enter time1 (hours:minutes): 5:00
+Enter time2 (hours:minutes): 3:30
+Time difference: 01:30
+...
+Enter time1 (hours:minutes): 22:30
+Enter time2 (hours:minutes): 2:40
+Time difference: 04:10
+
+
+Every operator in Python can be overloaded. The table below lists some of the most common methods. 
+A full list is available at the bottom of the section.
+
+Method 	                    Description
+__add__(self, other) 	    Add (+)
+__sub__(self, other) 	    Subtract (-)
+__mul__(self, other) 	    Multiply (*)
+__truediv__(self, other) 	Divide (/)
+__floordiv__(self, other) 	Floored division (//)
+__mod__(self, other) 	    Modulus (%)
+__pow__(self, other) 	    Exponentiation (**)
+__and__(self, other) 	    "and" logical operator
+__or__(self, other) 	    "or" logical operator
+__abs__(self)           	Absolute value (abs())
+__int__(self) 	            Convert to integer (int())
+__float__(self) 	        Convert to floating point (float())
+
+The table above lists common operators such as addition, subtraction, multiplication, division, and so on.
+Sometimes a class also needs to be able to handle being passed as arguments to built-in functions like
+abs(), int(), float(), etc. Defining the methods like __abs__(), __int__(), and __float__() will 
+automatically cause those methods to be called when an instance of that class is passed to the 
+corresponding function. The methods should return an appropriate object for each method, i.e., an integer 
+value for __int__() and a floating-point value for __float__().
+'''
 
 # class example
 class Inventory:
