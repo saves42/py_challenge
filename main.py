@@ -417,6 +417,55 @@ if __name__ == "__main__":
         print(err)
         print('Could not calculate heart rate info.')
 
+def get_weight():
+    weight = int(input('Enter weight (in pounds): '))
+    if weight < 0:
+        raise ValueError('Invalid weight.')
+    return weight
+
+def get_height():
+    height = int(input('Enter height (in inches): '))
+    if height <= 0:
+        raise ValueError('Invalid height.')
+    return height
+
+user_input = ''
+while user_input != 'q':
+    try:
+        weight = get_weight()
+        height = get_height()
+
+        bmi = (float(weight) / float(height * height)) * 703
+        print('BMI:', bmi)
+        print('(CDC: 18.6-24.9 normal)\n')
+        # Source www.cdc.gov
+
+    except ValueError as excpt:
+        print(excpt)
+        print('Could not calculate health info.\n')
+
+    user_input = input("Enter any key ('q' to quit): ")
+
+'''
+Custom exception example
+-------------------------
+
+class LessThanZeroError(Exception):
+    def __init__(self, value):
+        self.value = value
+
+my_num = int(input('Enter number: '))
+
+if my_num < 0:
+    raise LessThanZeroError('my_num must be greater than 0')
+else:
+    print('my_num:', my_num)
+
+Good practice is to include "Error" at the end of a custom exception type's name, as in 
+LessThanZeroError or MyError. Custom exception types are useful to track and handle the unique 
+exceptions that might occur in a program's code. Many larger third-party and Python standard 
+library modules use custom exception types.
+'''
 
 #########################################################################################################
 
