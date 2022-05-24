@@ -1,3 +1,4 @@
+import array
 import random
 
 '''
@@ -244,6 +245,109 @@ pets.values() # returns a view object that yields dictionary values.
 '''
 working with files
 '''
+# The open() built-in function requires a single argument that specifies the path to the file. 
+# Ex: open('myfile.txt')
+# The file.close() method closes the file, after which no more reads or writes to the file are allowed.
+# The file.read() method returns the file contents as a string.
+# The file.readlines() method returns a list of strings, where the first element is the contents 
+# of the first line, the second element is the contents of the second line, and so on.
+# The file.write() method writes a string argument to a file.
+# The write() method accepts a string argument only. Integers and floating-point values must first be 
+# converted using str(), as in f.write(str(5.75))
+# When writing to a file, the mode of the file must be explicitly set in the open() function call. 
+# A mode indicates how a file is opened, e.g., whether or not writing to the file is allowed, if existing 
+# contents of the file are overwritten or appended, etc.
+'''
+Mode 	Description 	                                    Allow read?     Allow write?   Create missing file?     Overwrite file?
+'r' 	Open the file for reading. 	                            Yes 	         No 	           No 	                   No
+
+'w' 	Open the file for writing.               	            No 	             Yes 	           Yes	                   Yes
+        If file does not exist then the file is created.
+        Contents of an existing file are overwritten.
+
+'a' 	Open the file for appending.     	                    No 	             Yes 	           Yes 	                   No
+        If file does not exist then the file is created.        
+        Writes are added to end of existing file contents.
+
+
+Read mode 'r' opens a file for reading. If the file is missing, then an error will occur.
+Write mode 'w' opens a file for writing. If the file is missing, then a new file is created. Contents of any existing file are overwritten.
+Append mode 'a' opens a file for writing. If the file is missing, then a new file is created. Writes to the file are appended to the end of an existing file's contents.
+Additionally, a programmer can add a '+' character to the end of a mode, like 'r+' and 'w+' to specify an update mode. Update modes allow for both reading and writing of a file at the same time.
+'''
+
+# Read file contents
+print ('Reading in data....')
+f = open('mydata.txt')
+lines = f.readlines()
+f.close()
+
+# Iterate over each line
+print('\nCalculating average....')
+total = 0
+for ln in lines:
+    total += int(ln)
+
+# Compute result
+avg = total/len(lines)
+print('Average value:', avg)
+
+"""Echo the contents of a file."""
+f = open('myfile.txt')
+
+for line in f:
+    print(line, end="")
+
+f.close()
+
+# os.path.join() example:
+# path = os.path.join('subdir', 'bat_mobile.jpg')
+# which will result in "subdir\\bat_mobile.jpg" on Windows and "subdir/bat_mobile.jpg" on Linux/Mac. 
+
+# os.path.split(path) – Splits a path into a 2-tuple (head, tail), where tail is the last token in the 
+# path string and head is everything else.
+
+# os.path.exists(path) – Returns True if path exists, else returns False.
+
+# os.path.isfile(path) – Returns True if path is an existing file, and false otherwise 
+# (e.g., path is a directory).
+
+# os.path.getsize(path) – Returns the size in bytes of path.
+
+# The os.walk() function 'walks' a directory tree, visiting each subdirectory in the specified path. 
+# The following example walks a user-specified year of the above directory tree.
+
+import os
+
+year = input('Enter year: ')
+path = os.path.join('logs', year)
+print()
+
+for dirname, subdirs, files in os.walk(path):
+    print(dirname, 'contains subdirectories:', subdirs, end=' ')
+    print('and the files:', files)
+
+# The os.walk() function is used as the iterable object in a for loop that yields a 3-tuple for each 
+# iteration.2 The first item dirname contains the path to the current directory. The second item subdirs 
+# is a list of all the subdirectories of the current directory. The third item files is a list of all the 
+# files residing in the current directory. array programmer might use os.walk() when searching for 
+# specific files within a directory tree, and the exact path is unknown. Another common task is to 
+# filter files based on their file extensions (.pdf, .txt, etc.), which are a convention used to 
+# indicate the type of data that a file holds.
+
+
+'''
+Output
+Enter year:2009
+
+logs\2009 contains subdirectories: ['April', 'January'] and the files: []
+logs\2009\April contains subdirectories: ['1'] and the files: []
+logs\2009\April\1 contains subdirectories: [] and the files: ['log.txt', 'words.doc']
+logs\2009\January contains subdirectories: ['15', '21', '24'] and the files: []
+logs\2009\January\15 contains subdirectories: [] and the files: ['log.txt']
+logs\2009\January\21 contains subdirectories: [] and the files: ['log.txt', 'temp23.pdf']
+logs\2009\January\24 contains subdirectories: [] and the files: ['presentation.ppt']
+'''
 
 
 # file path example
@@ -307,7 +411,7 @@ path = input()
 skip = []
 
 with open(path, 'r') as csvfile:
-    words = csv.reader(csvfile)
+    words = csv.reader(csvfile, delimiter=',')
     
     for row in words:
         for word in row:
@@ -317,7 +421,9 @@ with open(path, 'r') as csvfile:
                 skip.append(word)
                 print(f'{word} {row.count(word)}')
 
-
+# A programmer can also use the csv module to write text into a csv file, using a writer object. 
+# The writer object's writerow() and writerows methods can be used to write a list of strings into 
+# the file as one or more rows. 
 
 '''
 Write a program that first reads in the name of an input file and then reads the input file 
