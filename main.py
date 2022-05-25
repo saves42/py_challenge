@@ -2038,3 +2038,17 @@ while option != 'q':
     print_menu()
     
     option = input('Choose an option:\n')
+
+
+
+'''
+capitalize each word in a string
+'''
+
+def to_jaden_case(string):
+    tokens = string.split()
+    
+    for i in range(len(tokens)):
+        tokens[i] = tokens[i].replace(tokens[i][0], tokens[i][0].upper(),1)
+        
+    return ' '.join(tokens)
