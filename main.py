@@ -875,6 +875,71 @@ print(snacks.get_total(['coffee', 'donut', 'sandwich']))
 
 #########################################################################################################
 
+
+'''
+Unit testing
+'''
+
+# Example
+
+import unittest
+
+# User-defined class
+class Circle(object):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def compute_area(self):
+        return 3.14 * self.radius**2
+
+
+# Class to test Circle
+class TestCircle(unittest.TestCase):
+    def test_compute_area(self):
+        c = Circle(0)
+        self.assertEqual(c.compute_area(), 0.0)
+
+        c = Circle(5)
+        self.assertEqual(c.compute_area(), 78.5)
+
+    def test_will_fail(self):
+        c = Circle(5)
+        self.assertLess(c.compute_area(), 0)
+
+if __name__ == "__main__":
+    unittest.main()
+
+'''
+The program above implements a unit test for the Circle.compute_area() method. A new class TestCircle is 
+defined that inherits from unittest.TestCase. Methods within the TestCircle class that begin with "test_" 
+are the unit tests to be run. A unit test performs assertions to check if a computed value meets certain 
+requirements. Above, self.assertEqual( c.compute_area(), 78.5 ) asserts that the result of 
+c.compute_area() is equal to 78.5. If the assertion is not true, then an AssertionError will be raised 
+and the current test will report as a failure. Executing the unittest.main() function begins the test 
+process. After all tests have completed, a report is automatically printed.
+
+Assertion methods
+
+Method 	                    Checks that
+assertEqual(a, b) 	        a == b
+assertNotEqual(a,b) 	    a != b
+assertTrue(x) 	            bool(x) is True
+assertFalse(x) 	            bool(x) is False
+assertIs(a, b) 	            a is b
+assertIsNot(a,b) 	        a is not b
+assertIsNone(x) 	        x is None
+assertIsNotNone(x) 	        x is not None
+assertIn(a, b) 	            a in b
+assertNotIn(a, b) 	        a not in b
+assertAlmostEqual(a, b) 	round(a - b, 7) == 0
+assertGreater(a, b) 	    a > b
+assertGreaterEqual(a, b) 	a >= b
+assertLess(a, b) 	        a < b
+assertLessEqual(a, b) 	    a <= b
+
+'''
+
+
 '''
 --Use list() to convert view objects into lists to manipulate--
 
