@@ -873,6 +873,107 @@ print(snacks.get_price('coffee'))
 
 print(snacks.get_total(['coffee', 'donut', 'sandwich']))
 
+'''
+Inheritance
+'''
+
+# base class
+class Item:
+    def __init__(self):
+        self.name = ''
+        self.quantity = 0
+
+# derived class (inherits Item class)
+class Produce(Item):
+    def __init__(self):
+        Item.__init__(self) # call Item constructor
+        self.expiration = ''
+
+
+'''
+A class can inherit from more than one base class, a concept known as multiple inheritance. The derived 
+class inherits all of the class attributes and methods of every base class.
+
+    # ...
+class VampireBat(WingedAnimal, Mammal):  # Inherit from WingedAnimal, Mammal classes
+    # ...
+
+Mixins are classes that provide some additional behavior, by "mixin in" new methods, 
+but are not themselves meant to be instantiated. 
+
+class DrivingMixin(object):
+    def drive(self, distance):
+        # ...
+
+    def change_tire(self):
+        # ...
+
+    def check_oil(self):
+        # ...
+
+class FlyingMixin(object):
+    def fly(self, distance, altitude):
+        # ...
+
+    def roll(self):
+        # ...
+
+    def eject(self):
+        # ...
+
+class TransportMode(object):
+    def __init__(self, name, speed):
+        self.name = name
+        self.speed = speed
+
+    def display(self):
+        print(f'{self.name} can go {self.speed} mpg')
+
+class SemiTruck(TransportMode, DrivingMixin):
+    def __init__(self, name, speed, cargo):
+        TransportMode.__init__(self, name, speed)
+        self.cargo = cargo
+
+    def go(self, distance):
+        self.drive(distance)
+        # ...
+
+class FlyingCar(TransportMode, FlyingMixin, DrivingMixin):
+    def __init__(self, name, speed, max_altitude):
+        TransportMode.__init__(self, name, speed)
+        self.max_altitude = max_altitude
+
+    def go(self, distance):
+        self.fly(distance / 2, self.max_altitude)
+        # ...
+        self.drive(distance / 2)
+
+s = SemiTruck('MacTruck', 85, 'Frozen beans')
+f = FlyingCar('Jetson35K', 325, 15000)
+
+s.go(100)
+f.go(100)
+
+'''
+
+
+# An attribute reference is resolved using a search procedure that first checks the instance's namespace, 
+# then the classes' namespace, then the namespaces of any base classes. The search for an attribute 
+# continues all the way up the inheritance tree, which is the hierarchy of classes from a derived class to 
+# the final base class.
+
+# A derived class may define a method having the same name as a method in the base class. Such a member 
+# function overrides the method of the base class.
+# A programmer will often want to extend, rather than replace, the base class method. The base class 
+# method can be explicitly called at the start of the method, with the derived class then performing 
+# additional operations: 
+class Produce(Item):
+    # ...
+    def display(self):
+        Item.display(self)
+        print(f'  (Expires: {self.expiration})')
+    # ...
+
 #########################################################################################################
 
 
