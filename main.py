@@ -80,17 +80,43 @@ specifier
 '''
 
 '''
-using '{} {} {}'.format()
+# using '{} {} {}'.format()
 
-The three ways to provide values to replacements fields include:
+# The three ways to provide values to replacements fields include:
 
-Positional replacement 	    'The {1} in the {0} is {2}.'.format('hat', 'cat', 'fat')    The cat in the hat is fat.
+Positional replacement 	            'The {1} in the {0} is {2}.'.format('hat', 'cat', 'fat')    The cat in the hat is fat.
 
 Inferred positional replacement     'The {} in the {} is {}.'.format('cat', 'hat', 'fat')   The cat in the hat is fat.
 
-Named replacement   'The {animal} in the {headwear} is {shape}.'.format(animal='cat', headwear='hat', shape='fat')  The cat in the hat is fat.
+Named replacement                   'The {animal} in the {headwear} is {shape}.'.format(animal='cat', headwear='hat', shape='fat')  The cat in the hat is fat.
+
 '''
 
+# Comparing conversion operations using tuples and dicts.
+# using tuples
+import time
+gmt = time.gmtime()  # Get current Greenwich Mean Time
+
+print('Time is: {:02d}/{:02d}/{:04d}  {:02d}:{:02d} {:02d} sec' \
+     .format(gmt.tm_mon, gmt.tm_mday, gmt.tm_year, gmt.tm_hour, gmt.tm_min, gmt.tm_sec))
+
+# using dictionary
+import time
+gmt = time.gmtime()  # Get current Greenwich Mean Time
+
+print('Time is: %(month)02d/%(day)02d/%(year)04d  %(hour)02d:%(min)02d %(sec)02d sec' %  \
+      { 
+        'year': gmt.tm_year, 'month': gmt.tm_mon, 'day': gmt.tm_mday, 
+        'hour': gmt.tm_hour, 'min': gmt.tm_min, 'sec': gmt.tm_sec 
+      }
+)
+
+'''
+output:
+Time is: 06/07/2013  20:16 24 sec
+...
+Time is: 06/07/2013  20:16 28 sec
+'''
 
 #########################################################################################################
 
@@ -1072,6 +1098,58 @@ assertLessEqual(a, b) 	    a <= b
 
 '''
 
+#########################################################################################################
+'''
+Graphics
+'''
+
+'''
+Creating a Frame object for a graphical application:
+
+import tkinter as tk
+
+class Application(tk.Frame):
+   def __init__(self, master=None):
+       super().__init__(master)
+       self.master = master
+
+       # Set the frame's title
+       self.master.title('An Empty Frame')
+       self.pack()
+
+app_frame = tk.Tk()
+
+# Set the frame's width (400) and height (250) in pixels
+app_frame.geometry('400x250')
+
+# Make the frame visible to the user
+app = Application(master=app_frame)
+app.mainloop()
+
+'''
+
+'''
+create a class to draw 2D graphics using Canvas:
+
+import tkinter as tk
+from tkinter import Canvas, Frame, BOTH
+
+class Application(tk.Frame):
+   def __init__(self, master=None):
+       super().__init__(master)
+       self.master = master
+       self.pack(fill=BOTH, expand=1)
+
+       canvas = Canvas(self)
+       # Write your drawing instructions
+
+app_frame = tk.Tk()
+app_frame.geometry('400x250')
+app = Application(master=app_frame)
+app.mainloop()
+'''
+
+#########################################################################################################
 
 '''
 --Use list() to convert view objects into lists to manipulate--
