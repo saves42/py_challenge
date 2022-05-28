@@ -60,6 +60,38 @@ print('-' * 24)
 for item, price in stock.items():
   print(f'{item:<12}{price:^12}')
 
+# formatting using %
+name = 'John Smith'
+price = 25
+
+print('%s, thank you for your payment of $%d to Garys Balloon Emporium' % (name, price))
+
+'''
+common conversion specifiers
+----------------------------
+conversion      Notes                                                                                   Example 	        Output
+specifier                                                                                                                     
+%d 	            Substitute as integer.                                                                  print('%d' % 10)      10
+%f 	            Substitute as floating-point decimal.                                                   print('%f' % 15.2)    15.200000
+%s 	            Substitute as string.                                                                   print('%s' % 'ABC')   ABC
+%x, %X 	        Substitute as hexadecimal in lowercase (%x) or uppercase (%X).                          print('%x' % 31)      1f
+%e, %E 	        Substitute as floating-point exponential format in lowercase (%e) or uppercase (%E).    print('%E' % 15.2)    1.520000E+01
+
+'''
+
+'''
+using '{} {} {}'.format()
+
+The three ways to provide values to replacements fields include:
+
+Positional replacement 	    'The {1} in the {0} is {2}.'.format('hat', 'cat', 'fat')    The cat in the hat is fat.
+
+Inferred positional replacement     'The {} in the {} is {}.'.format('cat', 'hat', 'fat')   The cat in the hat is fat.
+
+Named replacement   'The {animal} in the {headwear} is {shape}.'.format(animal='cat', headwear='hat', shape='fat')  The cat in the hat is fat.
+'''
+
+
 #########################################################################################################
 
 my_list = []
@@ -2238,3 +2270,5 @@ def enough(cap, on, wait):
         space = wait - (cap - on)
         
     return space
+
+
