@@ -2350,3 +2350,18 @@ def enough(cap, on, wait):
     return space
 
 
+'''
+Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest 
+possible, containing distinct letters - each taken only once - coming from s1 or s2.
+'''
+
+def longest(a1, a2):
+    unique_letters = []
+    
+    for letter in a1 + a2:
+        if letter in unique_letters:
+            continue
+        else:
+            unique_letters.append(letter)
+            
+    return ''.join(sorted(unique_letters))
