@@ -2375,3 +2375,17 @@ Your task is to write a function which returns the time since midnight in millis
 
 def past(h, m, s):
     return (h * 3600000) + (m * 60000) + (s * 1000)
+
+
+
+
+'''
+Write a function called repeatStr which repeats the given string string exactly n times.
+example: 
+    repeatStr(6, "I") // "IIIIII"
+    repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
+
+'''
+
+def repeat_str(repeat, string):
+    return string * repeat
