@@ -2389,3 +2389,22 @@ example:
 
 def repeat_str(repeat, string):
     return string * repeat
+
+
+
+'''
+ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits. 
+If the function is passed a valid PIN string, return true, else return false.
+'''
+
+def validate_pin(pin):
+    is_valid = None
+    
+    if pin.isnumeric():
+        
+        is_valid = len(pin) == 4 or len(pin) == 6;
+    
+    else:
+        is_valid = False
+        
+    return is_valid
