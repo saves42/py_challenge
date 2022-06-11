@@ -2408,3 +2408,12 @@ def validate_pin(pin):
         is_valid = False
         
     return is_valid
+
+
+
+'''
+Create a method to see whether the string is ALL CAPS.
+'''
+
+def is_uppercase(inp):
+    return inp == inp.upper()
