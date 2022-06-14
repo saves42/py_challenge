@@ -2426,3 +2426,19 @@ Write a function that checks if a given string (case insensitive) is a palindrom
 
 def is_palindrome(s):
     return s.lower() == ''.join(s[::-1]).lower()
+
+
+
+
+'''
+Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result. It should remove all values from 
+list a, which are present in list b keeping their order.
+'''
+
+def array_diff(a, b):
+    for num in b:
+        if num in a:
+            while num in a:
+                a.remove(num)
+                
+    return a
