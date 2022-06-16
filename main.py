@@ -2462,3 +2462,38 @@ def duplicate_encode(word):
             converted.append('(')
             
     return ''.join(converted)
+
+
+
+'''
+The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings 
+representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block for each letter (direction) and you know it takes you one 
+minute to traverse one city blockcreate a function that will return true if the walk the app gives you will take you exactly ten minutes 
+(you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise
+'''
+
+def is_valid_walk(walk):
+    valid = False
+    directions = {
+        'n': 0,
+        's': 0,
+        'e': 0,
+        'w': 0
+    }
+    
+    for el in walk:
+        directions[el] += 1
+            
+    if (directions['n'] == directions['s']) and (directions['w'] == directions['e']):
+        if len(walk) != 10:
+            valid = False
+        else:
+            valid = True
+    
+    
+    
+    return valid
+    
+
+
+
