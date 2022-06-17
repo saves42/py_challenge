@@ -2496,4 +2496,27 @@ def is_valid_walk(walk):
     
 
 
+'''
+Move the first letter of each word to the end of it, then add "ay" to the end of the word. 
+Leave punctuation marks untouched.
+'''
 
+def pig_it(text):
+    pig_latin = []
+    
+    for word in text.split():
+        if word.isalpha():
+            first = word[0]
+        
+            if len(word) > 1:
+                new_word = f'{word[1:]}{first}ay'
+            
+            else:
+                new_word = f'{first}ay'
+            
+            pig_latin.append(new_word)
+            
+        else:
+            pig_latin.append(word)
+        
+    return ' '.join(pig_latin)
