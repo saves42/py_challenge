@@ -2520,3 +2520,56 @@ def pig_it(text):
             pig_latin.append(word)
         
     return ' '.join(pig_latin)
+
+
+
+'''
+Greed is a dice game played with five six-sided dice. Your mission, should you choose to accept it, is to score a 
+throw according to these rules. You will always be given an array with five six-sided dice values.
+
+Three 1's => 1000 points
+Three 6's =>  600 points
+Three 5's =>  500 points
+Three 4's =>  400 points
+Three 3's =>  300 points
+Three 2's =>  200 points
+One   1   =>  100 points
+One   5   =>   50 point
+
+A single die can only be counted once in each roll. For example, a given "5" can only count as part of a triplet 
+(contributing to the 500 points) or as a single 50 points, but not both in the same roll.
+'''
+
+def score(dice):
+    score = 0
+    rolled = {}
+    points = {
+        1: 1000,
+        2: 200,
+        3: 300,
+        4: 400,
+        5: 500,
+        6: 600
+    }
+    
+    for num in dice:
+        rolled[num] = dice.count(num)
+        
+    for key in rolled.keys():
+        if rolled[key] > 2:
+            score += points[key]
+            
+            if key == 1 or key == 5:
+                rolled[key] -= 3
+                while rolled[key] > 0:
+                    score += points[key] // 10
+                    rolled[key] -= 1
+                    
+        elif key == 1 or key == 5:
+            while rolled[key] > 0:
+                score += points[key] // 10
+                rolled[key] -= 1
+    
+    return score
+
+
