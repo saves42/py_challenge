@@ -2573,3 +2573,96 @@ def score(dice):
     return score
 
 
+
+
+'''
+Write a function that accepts a 2D array representing a Sudoku board, and returns true if it is a valid solution, or false otherwise. 
+The cells of the sudoku board may also contain 0's, which will represent empty cells. Boards containing one or more zeroes are considered 
+to be invalid solutions. The board is always 9 cells by 9 cells, and every cell only contains integers from 0 to 9.
+'''
+
+def valid_solution(board):
+    row_totals = 0
+    is_valid = True
+    
+    
+    columns = {
+        0: 0,
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0
+    }
+    
+    counts = {
+        0: [],
+        1: [],
+        2: [],
+        3: [],
+        4: [],
+        5: [],
+        6: [],
+        7: [],
+        8: []
+    }
+    
+    grids = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0,
+    }
+    
+    for row in board:
+        row_totals += sum(row)
+        for num in row:
+            if num == 0 or row.count(num) != 1:
+                is_valid = False
+            else:
+                columns[row.index(num)] += num
+                counts[row.index(num)].append(num)
+                
+                if board.index(row) >= 0 and board.index(row) < 3:
+                    if row.index(num) >= 0 and row.index(num) < 3:
+                        grids[1] += num
+                    elif row.index(num) >= 3 and row.index(num) < 6:
+                        grids[2] += num
+                    elif row.index(num) > 5:
+                        grids[3] += num
+                
+                elif board.index(row) >= 3 and board.index(row) < 6:
+                    if row.index(num) >= 0 and row.index(num) < 3:
+                        grids[4] += num
+                    elif row.index(num) >= 3 and row.index(num) < 6:
+                        grids[5] += num
+                    elif row.index(num) > 5:
+                        grids[6] += num
+                        
+                elif board.index(row) > 5:
+                    if row.index(num) >= 0 and row.index(num) < 3:
+                        grids[7] += num
+                    elif row.index(num) >= 3 and row.index(num) < 6:
+                        grids[8] += num
+                    elif row.index(num) > 5:
+                        grids[9] += num
+                
+    for row in counts.values():
+        for num in row:
+            if row.count(num) != 1:
+                is_valid = False
+    
+    for num in grids.values():
+        if num != 45:
+            is_valid = False
+                
+                
+    return row_totals == 405 and sum(columns.values()) == 405 and is_valid
