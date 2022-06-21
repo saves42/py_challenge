@@ -25,6 +25,8 @@ Methods to create new strings:
     lower() -- Returns a copy of the string with all characters lowercased.
     upper() -- Returns a copy of the string with all characters uppercased.
     strip() -- Returns a copy of the string with leading and trailing whitespace removed.
+    rstrip()-- Returns a copy of the string with trailing whitespace removed.
+    lstrip()-- Returns a copy of the string with leading whitespace removed.
     title() -- Returns a copy of the string as a title, with first letters of words capitalized.
 
 '''
