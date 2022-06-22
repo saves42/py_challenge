@@ -2668,3 +2668,21 @@ def valid_solution(board):
                 
                 
     return row_totals == 405 and sum(columns.values()) == 405 and is_valid
+
+
+
+'''
+Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+'''
+
+def make_readable(seconds):
+    hours = seconds // 3600
+    
+    seconds = seconds % 3600
+    
+    minutes = seconds // 60
+    
+    seconds = seconds % 60
+    
+    
+    return '{:02d}:{:02d}:{:02d}'.format(hours, minutes, seconds)
