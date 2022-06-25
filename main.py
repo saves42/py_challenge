@@ -2702,3 +2702,12 @@ def first_non_repeating_letter(string):
     
     except IndexError:
         return ''
+
+
+
+'''
+Given an array of integers your solution should find the smallest integer.
+'''
+
+def find_smallest_int(arr):
+    return min(arr)
