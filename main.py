@@ -2711,3 +2711,19 @@ Given an array of integers your solution should find the smallest integer.
 
 def find_smallest_int(arr):
     return min(arr)
+
+
+
+'''
+Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element 
+( by value, not by index! ). The highest or lowest element respectively is a single element at 
+each edge, even if there are more than one with the same value.
+'''
+
+def sum_array(arr):
+    if arr and len(arr) > 1:
+        arr.pop(arr.index(max(arr)))
+        arr.pop(arr.index(min(arr)))
+        return sum(arr)
+    
+    return 0
