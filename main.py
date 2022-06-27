@@ -2727,3 +2727,20 @@ def sum_array(arr):
         return sum(arr)
     
     return 0
+
+
+
+'''
+Your task is to write a function that takes a string 
+and return a new string with all vowels removed.
+'''
+
+def disemvowel(string_):
+    new_string = []
+    
+    for char in string_:
+        if char.lower() not in 'aeiou':
+            new_string += char
+            
+    return ''.join(new_string)
+    
