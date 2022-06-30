@@ -1,4 +1,3 @@
-import array
 import random
 
 '''
